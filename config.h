@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -101,7 +102,10 @@ static Key keys[] = {
 	TAGKEYS(                        0x5f,                      7)
 	TAGKEYS(                        0xe7,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
+	{ 0,      XF86XK_AudioRaiseVolume,	spawn,     SHCMD("amixer sset Master 5%+ ; pkill -RTMIN+10 dwmblocks") },
+    	{ 0,      XF86XK_AudioLowerVolume,	spawn,     SHCMD("amixer sset Master 5%- ; pkill -RTMIN+10 dwmblocks") },	
+    	{ 0,      XF86XK_AudioMute,		spawn,     SHCMD("amixer sset Master toggle; pkill -RTMIN+10 dwmblocks") },	
 };
 
 /* button definitions */

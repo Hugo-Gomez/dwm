@@ -3,13 +3,14 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int gappx     = 5;       /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar       = 2;        /* horizontal padding for statusbar */
 static const int vertpadbar        = 12;        /* vertical padding for statusbar */
 static const char *fonts[]          = { "FontAwesome:pixelsize=16:antialias=true:autohint=true", "monospace:size=9" };
-static const char dmenufont[]       = "monospace:size=9";
+static const char dmenufont[]       = "monospace:size=16";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";

@@ -37,6 +37,8 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     switchtotag  isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
 	{ "firefox",  NULL,       NULL,       1 << 1,       1,           0,           -1 },
+	{ "code",     NULL,       NULL,       1 << 2,       1,           0,           -1 },
+	{ "st",       NULL,       NULL,       1 << 3,       1,           0,           -1 },
 };
 
 /* layout(s) */
@@ -67,6 +69,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *lockcmd[] = { "lock", NULL };
+static const char *rangercmd[] = { "st", "-e", "ranger", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -111,6 +114,7 @@ static Key keys[] = {
     	{ 0,      XF86XK_AudioMute,		spawn,     SHCMD("amixer sset Master toggle; pkill -RTMIN+10 dwmblocks") },
 	/* Lock screen */
 	{ MODKEY|ShiftMask,		XK_l,	spawn,		    {.v = lockcmd } },	
+	{ MODKEY,			XK_r,	spawn,		    {.v = rangercmd } },	
 };
 
 /* button definitions */

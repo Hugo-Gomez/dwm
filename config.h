@@ -36,7 +36,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
 };
 
 /* layout(s) */
@@ -66,6 +66,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *lockcmd[] = { "lock", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -92,6 +93,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	/* Change keys for French azerty layout */
 	TAGKEYS(                        0x26,                      0)
 	TAGKEYS(                        0xe9,                      1)
 	TAGKEYS(                        0x22,                      2)
@@ -103,9 +105,12 @@ static Key keys[] = {
 	TAGKEYS(                        0xe7,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
+	/* Dedicaded key (volume etc...) */
 	{ 0,      XF86XK_AudioRaiseVolume,	spawn,     SHCMD("amixer sset Master 5%+ ; pkill -RTMIN+10 dwmblocks") },
     	{ 0,      XF86XK_AudioLowerVolume,	spawn,     SHCMD("amixer sset Master 5%- ; pkill -RTMIN+10 dwmblocks") },	
-    	{ 0,      XF86XK_AudioMute,		spawn,     SHCMD("amixer sset Master toggle; pkill -RTMIN+10 dwmblocks") },	
+    	{ 0,      XF86XK_AudioMute,		spawn,     SHCMD("amixer sset Master toggle; pkill -RTMIN+10 dwmblocks") },
+	/* Lock screen */
+	{ MODKEY|ShiftMask,		XK_l,	spawn,		    {.v = lockcmd } },	
 };
 
 /* button definitions */

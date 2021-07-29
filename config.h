@@ -2,15 +2,17 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int gappx     = 3;       /* gap pixel between windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int gappx     = 10;       /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar       = 2;        /* horizontal padding for statusbar */
 static const int vertpadbar        = 12;        /* vertical padding for statusbar */
-static const char *fonts[]          = { "monospace:size=12" };
-static const char dmenufont[]       = "monospace:size=16";
+/* static const char *fonts[]          = { "monospace:size=12" }; */
+static const char *fonts[]          = { "SFMono:size=11" };
+/* static const char dmenufont[]       = "monospace:size=16"; */
+static const char dmenufont[]       = "SFMono:size=15";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -33,7 +35,7 @@ static const char *colors[][3]      = {
 /* WEB :  */
 /* CODE :  */
 /* TERM :  */
-static const char *tags[] = {"1 ", "2 ", "3 ", "4", "5", "6", "7", "8", "9"};
+static const char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -42,9 +44,6 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     switchtotag  isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
-	{ "firefox",  NULL,       NULL,       1 << 0,       1,           0,           -1 },
-	{ "code",     NULL,       NULL,       1 << 1,       1,           0,           -1 },
-	{ "st",       NULL,       NULL,       1 << 2,       1,           0,           -1 },
 };
 
 /* layout(s) */
